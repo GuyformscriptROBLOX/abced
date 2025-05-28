@@ -3,7 +3,7 @@
 local LocalPlayer = game.Players.LocalPlayer
 
 
-local keyUrl = "https://raw.githubusercontent.com/GuyformscriptROBLOX/abced/refs/heads/main/key.txt" -- <-- TUTAJ WKLEJ SWÓJ LINK DO 
+local keyUrl = "https://raw.githubusercontent.com/GuyformscriptROBLOX/abced/refs/heads/main/key.txt" 
 
 local _a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 local _b = "abcdefghijklmnopqrstuvwxyz"
