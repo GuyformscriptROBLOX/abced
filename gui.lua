@@ -1,11 +1,10 @@
--- Twój własny key system GUI
+
 
 local LocalPlayer = game.Players.LocalPlayer
 
--- PODMIEN TUTAJ LINK DO SWOJEGO PLIKU Z KLUCZEM (key.txt) NA GITHUBIE:
-local keyUrl = "https://raw.githubusercontent.com/GuyformscriptROBLOX/abced/refs/heads/main/key.txt" -- <-- TUTAJ WKLEJ SWÓJ LINK DO KEY
 
--- Ukryte dekodowanie klucza
+local keyUrl = "https://raw.githubusercontent.com/GuyformscriptROBLOX/abced/refs/heads/main/key.txt" -- <-- TUTAJ WKLEJ SWÓJ LINK DO 
+
 local _a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 local _b = "abcdefghijklmnopqrstuvwxyz"
 local _c = "0123456789+/"
@@ -26,9 +25,8 @@ local function _d(d)
     end))
 end
 
--- Pobierz i zdekoduj klucz
 local encodedKey = game:HttpGet(keyUrl)
-local keyRequired = _d(encodedKey):gsub("%s+", "") -- usuwa białe znaki
+local keyRequired = _d(encodedKey):gsub("%s+", "")
 
 
 local unlockGui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
@@ -44,12 +42,12 @@ label.Size = UDim2.new(1, 0, 0, 40)
 label.Position = UDim2.new(0, 0, 0, 10)
 label.BackgroundTransparency = 1
 label.TextColor3 = Color3.new(1,1,1)
-label.Text = "Podaj klucz, aby odblokować skrypt:"
+label.Text = "your key:"
 
 local textbox = Instance.new("TextBox", frame)
 textbox.Size = UDim2.new(0.8, 0, 0, 30)
 textbox.Position = UDim2.new(0.1, 0, 0, 60)
-textbox.PlaceholderText = "Wpisz klucz..."
+textbox.PlaceholderText = "here"
 textbox.Text = ""
 textbox.TextColor3 = Color3.new(1,1,1)
 textbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
@@ -57,7 +55,7 @@ textbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 local button = Instance.new("TextButton", frame)
 button.Size = UDim2.new(0.8, 0, 0, 30)
 button.Position = UDim2.new(0.1, 0, 0, 100)
-button.Text = "Odblokuj"
+button.Text = "unlock"
 button.TextColor3 = Color3.new(1,1,1)
 button.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
 
@@ -72,9 +70,9 @@ wrongLabel.TextScaled = true
 button.MouseButton1Click:Connect(function()
     if textbox.Text == keyRequired then
         unlockGui:Destroy()
-        print("Klucz poprawny!")
+        print("corect")
 
-        -- Ukryte dekodowanie skryptu
+        
         local _a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         local _b = "abcdefghijklmnopqrstuvwxyz"
         local _c = "0123456789+/"
@@ -98,7 +96,7 @@ button.MouseButton1Click:Connect(function()
         local decoded = _d(encoded)
         loadstring(decoded)()
     else
-        wrongLabel.Text = "Zły klucz!"
+        wrongLabel.Text = "wrong key"
         wait(1)
         wrongLabel.Text = ""
     end
